@@ -1,26 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { ThemeProvider } from '@mui/material/styles'
+import { Box } from '@mui/material'
+import TopBar from './component/TopBar'
+import SideMenu from './component/SideMenu'
+import BottomBar from './component/BottomBar'
+import JudgePanel from './component/JudgePanel'
+import ParticipantPanel from './component/ParticipantPanel'
+import theme from './style/theme'
+import MainStoreProvider from './context/Main'
+import VideoConference from './component/VideoConference'
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <MainStoreProvider>
+      <ThemeProvider theme={theme}>
+        <VideoConference/>
+      </ThemeProvider>
+    </MainStoreProvider>
+  )
 }
 
-export default App;
+export default App
